@@ -13,7 +13,10 @@ export default defineConfig({
   integrations: [
     storyblok({
       accessToken: env.STORYBLOK_TOKEN,
-      components: {},
+      components: {
+        page: "storyblok/Page",
+        grid: "storyblok/Grid",
+      },
     }),
     tailwind(),
     solidJs(),
