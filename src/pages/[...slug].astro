@@ -9,7 +9,10 @@ import generateStaticPaths from "../utils/generateStaticPaths";
 export async function getStaticPaths() {
   return await generateStaticPaths();
 }
-const params = Astro.params;
+
+export const prerender = true;
+
+const params = Astro.params as any;
 
 let props = isPreview() ? parseUrl(params?.slug) : Astro.props;
 const { slug, language } = props;
