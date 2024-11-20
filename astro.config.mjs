@@ -6,8 +6,6 @@ import basicSsl from "@vitejs/plugin-basic-ssl";
 import vercel from "@astrojs/vercel/serverless";
 const env = loadEnv("", process.cwd(), "STORYBLOK");
 
-console.log(env);
-
 // https://astro.build/config
 export default defineConfig({
   integrations: [
