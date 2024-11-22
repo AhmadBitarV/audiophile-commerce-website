@@ -1,0 +1,29 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+import type { Tags, TextVariants } from "../Components/Text";
+import type { HTMLAttributes } from "astro/types";
+import { Text as TextComponent } from "../Components/Text";
+
+export interface Props extends HTMLAttributes<"div"> {
+  blok: {
+    text: string;
+    variant: TextVariants;
+    tag: Tags;
+  };
+}
+
+const { blok } = Astro.props;
+const classList = Astro.props["class:list"] as string[];
+const { variant = "body-xs", tag = "p", text } = blok;
+---
+
+<TextComponent
+  tag={tag}
+  variant={variant}
+  class:list={{
+    [classList?.join(" ")]: classList?.length,
+  }}
+  {...storyblokEditable(blok)}
+>
+  {text}
+</TextComponent>
